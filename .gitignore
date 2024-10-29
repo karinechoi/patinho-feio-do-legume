@@ -1,0 +1,24 @@
+# .gitignore
+
+# Diretório de ambiente virtual
+env/
+
+# Arquivos de configuração e variáveis de ambiente
+*.env
+
+# Arquivos compilados do Python
+*.pyc
+__pycache__/
+
+# Banco de dados SQLite (se usado localmente)
+*.sqlite3
+
+# Diretórios e arquivos de cache
+*.log
+staticfiles/
+media/
+
+# Outras exclusões (ex: IDEs e editores)
+.vscode/
+.idea/
+.DS_Store
