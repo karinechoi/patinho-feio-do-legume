@@ -1,0 +1,4 @@
+Django==3.2
+psycopg2-binary==2.9.3  # PostgreSQL driver
+python-decouple==3.6    # Gerenciamento de variáveis de ambiente
+djangorestframework==3.12.4  # Framework para APIs REST
