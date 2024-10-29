@@ -13,7 +13,7 @@ SECRET_KEY = config('SECRET_KEY', default=get_random_secret_key())
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # Configuração dos Hosts Permitidos
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1', cast=Csv())
+ALLOWED_HOSTS = ['.vercel.app', 'localhost']
 
 # Aplicativos Instalados
 INSTALLED_APPS = [
@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
 # Middleware
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',  # Middleware para CORS
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -67,11 +68,10 @@ WSGI_APPLICATION = 'produtoWebserver.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST', default='127.0.0.1'),
-        'PORT': config('DB_PORT', default='5432'),
+        'OPTIONS': {
+            'options': f'-c search_path={config("POSTGRES_DATABASE")}',
+        },
+        'URL': config('POSTGRES_PRISMA_URL'),
     }
 }
 
