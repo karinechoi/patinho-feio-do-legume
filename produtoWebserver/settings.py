@@ -42,7 +42,7 @@ MIDDLEWARE = [
 ]
 
 # Configuração das URLs
-ROOT_URLCONF = 'myproject.urls'
+ROOT_URLCONF = 'produtoWebserver.urls'
 
 # Configuração de Templates
 TEMPLATES = [
