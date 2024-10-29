@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'rest_framework',          # Django REST Framework para APIs
     'corsheaders',             # Django CORS Headers para permitir CORS (opcional)
     'main',                    # Nosso aplicativo principal
+    'produtoWebserver',  # Registra produtoWebserver para que o Django reconheça os modelos
 ]
 
 # Middleware
@@ -68,10 +69,11 @@ WSGI_APPLICATION = 'produtoWebserver.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'OPTIONS': {
-            'options': f'-c search_path={config("POSTGRES_DATABASE")}',
-        },
-        'URL': config('POSTGRES_PRISMA_URL'),
+        'NAME': config('POSTGRES_DATABASE', default='nome_do_banco'),
+        'USER': config('POSTGRES_USER', default='usuario'),
+        'PASSWORD': config('POSTGRES_PASSWORD', default='senha'),
+        'HOST': config('POSTGRES_HOST', default='localhost'),
+        'PORT': config('POSTGRES_PORT', default='5432'),
     }
 }
 

@@ -11,6 +11,8 @@ class Produto(models.Model):
     classificacao = models.DecimalField(max_digits=3, decimal_places=1)
     tipo_produto = models.CharField(max_length=100)
     tipo_medida = models.CharField(max_length=50)
-
+    
+    class Meta:
+        app_label = 'produtoWebserver'
     def __str__(self):
         return self.nome

@@ -5,7 +5,7 @@ from main.views import (
     buscar_produtos_agricultor,
     cadastrar_produto,
     deletar_produto, 
-    test
+    exemplo_dados,
 )
 
 urlpatterns = [
@@ -13,5 +13,5 @@ urlpatterns = [
     path('produtos/agricultor/<int:id_agricultor>/', buscar_produtos_agricultor, name='buscar_produtos_agricultor'),
     path('produtos/cadastrar/', cadastrar_produto, name='cadastrar_produto'),
     path('produtos/deletar/<int:id_produto>/<int:id_agricultor>/', deletar_produto, name='deletar_produto'),
-    path('api/exemplo/', test, name='exemplo_dados'),
+    path('api/exemplo/', exemplo_dados, name='exemplo_dados'),
 ]
