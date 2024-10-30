@@ -1,6 +1,5 @@
 # main/models.py
 from django.db import models
-
 from produtoWebserver.settings import DEFAULT_FILE_STORAGE
 
 class Produto(models.Model):
