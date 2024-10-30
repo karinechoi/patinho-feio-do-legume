@@ -1,5 +1,7 @@
 # main/urls.py
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from main.views import (
     buscar_produtos_disponiveis,
     buscar_produtos_agricultor,
@@ -15,3 +17,6 @@ urlpatterns = [
     path('produtos/deletar/<int:id_produto>/<int:id_agricultor>/', deletar_produto, name='deletar_produto'),
     path('api/exemplo/', exemplo_dados, name='exemplo_dados'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
