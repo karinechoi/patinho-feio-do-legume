@@ -13,7 +13,7 @@ SECRET_KEY = config('SECRET_KEY', default=get_random_secret_key())
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # Configuração dos Hosts Permitidos
-ALLOWED_HOSTS = ['.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['.vercel.app', 'localhost','127.0.0.1']
 
 # Aplicativos Instalados
 INSTALLED_APPS = [
