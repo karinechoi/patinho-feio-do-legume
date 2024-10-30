@@ -4,9 +4,7 @@ from pathlib import Path
 from decouple import config, Csv
 from django.core.management.utils import get_random_secret_key
 import sys
-from dotenv import load_dotenv
 
-load_dotenv()
 # Caminho base do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
