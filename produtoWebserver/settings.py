@@ -25,7 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',          # Django REST Framework para APIs
     'corsheaders',             # Django CORS Headers para permitir CORS (opcional)
-    'main',                    # Nosso aplicativo principal
+    'main',
+    'storages',                    # Nosso aplicativo principal
     'produtoWebserver',  # Registra produtoWebserver para que o Django reconheça os modelos
 ]
 
@@ -115,7 +116,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
+DEFAULT_FILE_STORAGE ='main.storage.vercelStorage.VercelBlobStorage'
 # Configurações de Arquivos de Mídia
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -133,7 +134,7 @@ REST_FRAMEWORK = {
 
 # Configurações de CORS (Cross-Origin Resource Sharing)
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=Csv(), default="http://localhost:3000")
-
+VERCEL_BLOB_TOKEN = config('VERCEL_BLOB_TOKEN')   
 # Configurações para o CORS se precisar permitir acesso de qualquer origem (não recomendado em produção)
 # CORS_ALLOW_ALL_ORIGINS = True
 
