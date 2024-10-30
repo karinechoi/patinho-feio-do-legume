@@ -6,6 +6,7 @@ from django.conf import settings
 
 class VercelBlobStorage(Storage):
     def __init__(self):
+        self.base_url = getattr(settings, 'VERCEL_BLOB_BASE_URL', None)
         self.token = settings.VERCEL_BLOB_TOKEN
 
     def _save(self, name, content):
