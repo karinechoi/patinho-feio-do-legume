@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from decouple import config, Csv
 from django.core.management.utils import get_random_secret_key
-
+import sys
 # Caminho base do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -65,6 +65,13 @@ TEMPLATES = [
 # Configuração de WSGI
 WSGI_APPLICATION = 'produtoWebserver.wsgi.application'
 
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',  # Banco de dados em memória, rápido e isolado
+        }
+    }
 # Configuração do Banco de Dados (Exemplo com PostgreSQL)
 DATABASES = {
     'default': {
@@ -74,6 +81,11 @@ DATABASES = {
         'PASSWORD': config('POSTGRES_PASSWORD', default='senha'),
         'HOST': config('POSTGRES_HOST', default='localhost'),
         'PORT': config('POSTGRES_PORT', default='5432'),
+        'PORT': config('POSTGRES_PORT', default='5432'),
+        'TEST': {
+            'NAME': 'tests_' + config('POSTGRES_DATABASE', default='nome_do_banco')  # Usa um banco temporário
+        },
+
     }
 }
 
@@ -131,17 +143,17 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'file': {
+        'console': {
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'debug.log',
+            'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['file'],
+            'handlers': ['console'],  # Use console em vez de file
             'level': 'DEBUG',
             'propagate': True,
         },
     },
 }
+
