@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login - Patinho Feio do Legume</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <h2>Patinho Feio do Legume</h2>
+            <p>Login na sua conta</p>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <input type="text" id="username" placeholder="Nome de usuário" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Lembrar de mim</label>
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+                <div id="loginError" class="error-message"></div>
+                <button type="submit">Log In</button>
+            </form>
+            <div class="social-login">
+                <p>OR</p>
+                <div class="social-icons">
+                    <img src="images/google-icon.png" alt="Google">
+                    <img src="images/facebook-icon.png" alt="Facebook">
+                    <img src="images/apple-icon.png" alt="Apple">
+                </div>
+                <p>Não tem uma conta? <a href="signup.html">Criar conta</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="static/js/auth.js"></script>
+    <script>
+        async function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('loginError');
+
+            try {
+                const response = await login(username, password);
+                window.location.href = '/choose-profile.html';
+            } catch (error) {
+                errorDiv.textContent = error.message;
+                errorDiv.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

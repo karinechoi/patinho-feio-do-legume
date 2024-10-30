@@ -1,0 +1,542 @@
+/* General Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;  /* Ensure full width */
+    height: 100%; /* Ensure full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('images/background.png'); /* Updated background image path */
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    overflow: auto; /* Allow scrolling if needed */
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center contents vertically */
+    background: rgba(255, 255, 255, 0.95); /* Slightly opaque background */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px; /* Adjust container's max-width */
+    width: 100%;
+    margin: 20px; /* Ensure space around container */
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    z-index: 10; /* Ensure it's above background elements */
+    position: relative;
+}
+
+.form-container {
+    text-align: center;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #FF7F00;
+}
+
+p {
+    color: #555;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    background-color: #FF7F00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #e66a00;
+}
+
+.social-login {
+    margin-top: 20px;
+}
+
+.social-login p {
+    color: #555;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+a {
+    color: #FF7F00;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Profile Selection Page Styles */
+.profile-options {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px; 
+    gap: 30px; 
+    width: 100%; 
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px; 
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 250px; 
+    position: relative;
+}
+
+.profile-card:hover {
+    transform: scale(1.05);
+}
+
+.agricultor {
+    background-color: #D1E0D2;
+}
+
+.consumidor {
+    background-color: #F3E4CC;
+}
+
+.profile-card img {
+    width: 80px; 
+    margin-bottom: 10px;
+}
+
+.profile-card h3 {
+    color: #333;
+    font-size: 1.2em; 
+}
+
+.btn {
+    background-color: #FF7F00;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #e66a00;
+}
+
+.container h2 {
+    color: #333;
+    margin-bottom: 100px;
+    font-size: 2em; 
+    text-align: center;
+}
+
+/* Styles for destination page */
+.destination-body {
+    background-color: #f4f4f9;
+    padding: 0;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: url('images/hero-background.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%; 
+    margin: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-section .destination-container {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.search-bar {
+    display: flex;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.search-bar input, .search-bar button {
+    padding: 10px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.search-bar input {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.search-bar button {
+    background-color: #FF7F00;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.search-bar button:hover {
+    background-color: #e66a00;
+}
+
+.content {
+    padding-top: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.top-categories {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    gap: 15px;
+}
+
+.category-item {
+    padding: 10px 15px;
+    background-color: #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-item:hover {
+    background-color: #FF7F00;
+    color: white;
+}
+
+.vacation-destinations {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 20px auto;
+    margin-bottom: 40px;
+}
+
+.destination-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.destination-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    width: 280px;
+}
+
+.destination-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+}
+
+.destination-card h3 {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: right;
+    padding: 20px;
+    padding-top: 30px;
+}
+/* Floating Cart Icon Styles */
+.floating-cart {
+    position: fixed;
+    bottom: 20px; /* Adjust the position as needed */
+    right: 20px;  /* Adjust the position as needed */
+    background-color: #FF7F00;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 100;
+}
+
+.floating-cart:hover {
+    transform: scale(1.1);
+}
+
+.floating-cart img {
+    width: 30px;
+    height: 30px;
+}
+
+.item-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+/* Styles for the modal */
+.cart-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cart-modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#cartItemsList {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#cartItemsList li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#checkoutButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#checkoutButton:hover {
+    background-color: #45a049;
+}
+/* Floating Cart Icon */
+.floating-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #FF7F00;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 100;
+}
+
+.floating-cart:hover {
+    transform: scale(1.1);
+}
+
+.floating-cart img {
+    width: 30px;
+    height: 30px;
+}
+
+.item-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+/* Tooltip styling */
+.cart-tooltip {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 90px; /* Adjusted above the cart icon */
+    right: 20px;
+    background-color: #FF7F00;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 200px; /* Adjust the width as needed */
+    z-index: 150;
+}
+
+.cart-tooltip:before {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Adjust to position the triangle */
+    right: 15px; /* Adjust to align with the cart icon */
+    border-width: 10px;
+    border-style: solid;
+    border-color: #FF7F00 transparent transparent transparent;
+}
+
+.cart-tooltip h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: white;
+}
+
+#cartItemsList {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#cartItemsList li {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+    font-size: 0.9em;
+}
+.button-publique {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ff6600; /* Cor do texto */
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #f2f2f2; /* Cor de fundo */
+    border: 1px solid #ccc;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.button-publique:hover {
+    background-color: #e6e6e6;
+}
+

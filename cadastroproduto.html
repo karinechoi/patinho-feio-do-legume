@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf9f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        /* Estilo do cabeçalho */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #63a160;
+            padding: 10px 20px;
+            color: #fff;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-container img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .logo-container span {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .icons {
+            font-size: 1.5em;
+        }
+        /* Estilo do conteúdo principal */
+        .form-container {
+            background-color: #f7f3eb;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        h2 {
+            color: #63a160;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #5d6d5f;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="file"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #c3c2bc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            background-color: #f5f3ef;
+        }
+        .form-section {
+            margin-bottom: 25px;
+        }
+        .form-section h3 {
+            color: #63a160;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        button {
+            background-color: #63a160;
+            color: #fff;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #63a160;
+        }
+        /* Esconde as seções dinâmicas inicialmente */
+        .dynamic-field {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho com logo e ícones -->
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo do Patinho Feio do Legume">
+            <span>Patinho Feio do Legume</span>
+        </div>
+        <div class="icons">
+            <span>🛒</span>
+            <span style="margin-left: 15px;">👤</span>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <div class="form-container">
+        <h2>Cadastro de Produto</h2>
+        <form action="listagem.html" method="GET" enctype="multipart/form-data">
+            <!-- Dados Básicos do Produto -->
+            <div class="form-section">
+                <h3>Dados Básicos do Produto</h3>
+                <label>Nome do Produto:
+                    <input type="text" name="nome" placeholder="Digite o nome do produto" required>
+                </label>
+                <label>Descrição:
+                    <textarea name="descricao" rows="4" placeholder="Detalhe os benefícios e o modo de uso" required></textarea>
+                </label>
+                <label>Categoria:
+                    <select name="categoria" required>
+                        <option value="" disabled selected>Selecione a categoria</option>
+                        <option>Frutas</option>
+                        <option>Vegetais</option>
+                        <option>Grãos</option>
+                    </select>
+                </label>
+                <label>Imagens do Produto:
+                    <input type="file" name="imagens" accept="image/*" multiple>
+                </label>
+                <label>Código de Barras (opcional):
+                    <input type="text" name="codigo_barras" placeholder="Digite o código de barras">
+                </label>
+            </div>
+            
+            <!-- Especificações do Produto -->
+            <div class="form-section">
+                <h3>Especificações do Produto</h3>
+                <label>Tipo de Venda:
+                    <select name="tipo_venda" id="tipo_venda" required onchange="atualizarCampos()">
+                        <option value="" disabled selected>Selecione o tipo de venda</option>
+                        <option value="unidade">Por unidade</option>
+                        <option value="quilo">Por quilo</option>
+                    </select>
+                </label>
+                
+                <!-- Campos para "Por Unidade" -->
+                <div id="por_unidade" class="dynamic-field">
+                    <label>Quantidade por Embalagem:
+                        <input type="number" name="quantidade" placeholder="Digite a quantidade">
+                    </label>
+                    <label>Valor por Unidade:
+                        <input type="number" name="valor_unidade" step="0.01" placeholder="Digite o valor por unidade">
+                    </label>
+                </div>
+                
+                <!-- Campos para "Por Quilo" -->
+                <div id="por_quilo" class="dynamic-field">
+                    <label>Unidade Mínima de Venda:
+                        <input type="number" name="unidade_minima" placeholder="Digite a unidade mínima">
+                    </label>
+                    <label>Valor por Quilo:
+                        <input type="number" name="valor_quilo" step="0.01" placeholder="Digite o valor por quilo">
+                    </label>
+                </div>
+                
+                <label>Peso/Volume:
+                    <input type="number" name="peso" placeholder="Digite o peso ou volume">
+                </label>
+                <label>Informações Nutricionais:
+                    <textarea name="informacoes_nutricionais" rows="2" placeholder="Informações nutricionais relevantes"></textarea>
+                </label>
+            </div>
+            
+            <!-- Informações Adicionais -->
+            <div class="form-section">
+                <h3>Informações Adicionais</h3>
+                <label>Certificações Orgânicas:
+                    <input type="text" name="certificacoes" placeholder="Digite as certificações, se houver">
+                </label>
+                <label>Origem do Produto:
+                    <input type="text" name="origem" placeholder="Digite a origem (local, fazenda, etc.)">
+                </label>
+                <label>Disponibilidade:
+                    <select name="disponibilidade">
+                        <option value="" disabled selected>Selecione a disponibilidade</option>
+                        <option>Em estoque</option>
+                        <option>Pré-venda</option>
+                    </select>
+                </label>
+                <label>Validade (se aplicável):
+                    <input type="date" name="validade">
+                </label>
+            </div>
+            
+            <button type="submit">Cadastrar Produto</button>
+        </form>
+    </div>
+
+    <script>
+        function atualizarCampos() {
+            const tipoVenda = document.getElementById("tipo_venda").value;
+            document.getElementById("por_unidade").style.display = tipoVenda === "unidade" ? "block" : "none";
+            document.getElementById("por_quilo").style.display = tipoVenda === "quilo" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Cadastrados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf9f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        /* Estilo do cabeçalho */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #63a160;
+            padding: 10px 20px;
+            color: #fff;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-container img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .logo-container span {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .icons {
+            font-size: 1.5em;
+        }
+        /* Botão de cadastrar produto no canto superior direito */
+        .btn-cadastrar {
+            background-color: #63a160;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            position: absolute;
+            right: 20px;
+            top: 80px;
+        }
+        /* Estilo do conteúdo principal */
+        h2 {
+            color: #63a160;
+            text-align: center;
+            margin: 20px 0;
+        }
+        /* Estilos de filtro e barra de pesquisa */
+        .filtro-pesquisa {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px;
+        }
+        .filtro-pesquisa select, .filtro-pesquisa input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .filtro-pesquisa button {
+            background-color: #63a160;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .filtro-pesquisa button:hover {
+            background-color: #519f51;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .produto-card {
+            background-color: #f7f3eb;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .produto-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .produto-card h3 {
+            color: #63a160;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .produto-card p {
+            font-size: 0.9em;
+            color: #555;
+            margin: 5px 0;
+        }
+        .btn-acao {
+            background-color: #63a160;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn-acao:hover {
+            background-color: #519f51;
+        }
+        .btn-acao.excluir {
+            background-color: #dc3545;
+        }
+        .btn-acao.excluir:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho com logo e ícones -->
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo do Patinho Feio do Legume">
+            <span>Patinho Feio do Legume</span>
+        </div>
+        <div class="icons">
+            <span>🛒</span>
+            <span style="margin-left: 15px;">👤</span>
+        </div>
+    </header>
+
+    <!-- Botão de cadastrar novo produto no canto superior direito -->
+    <a href="cadastroproduto.html" class="btn-cadastrar">Cadastrar Novo Produto</a>
+
+    <!-- Filtro por categoria e barra de pesquisa -->
+    <div class="filtro-pesquisa">
+        <select id="categoria" name="categoria">
+            <option value="">Todas as Categorias</option>
+            <option value="vegetais">Vegetais</option>
+            <option value="frutas">Frutas</option>
+            <option value="legumes">Legumes</option>
+            <!-- Adicione outras opções conforme necessário -->
+        </select>
+        
+        <input type="text" id="pesquisa" placeholder="Pesquisar por nome do produto">
+        <button onclick="filtrarProdutos()">Buscar</button>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <h2>Meus Produtos</h2>
+
+    <div class="container" id="produtosContainer">
+        <!-- Exemplo de produto cadastrado -->
+        <div class="produto-card">
+            <img src="images/tomate.png" alt="Imagem do Produto">
+            <h3>Tomate Orgânico</h3>
+            <p>Categoria: Vegetais</p>
+            <p>Preço: R$ 4,50 / Unidade</p>
+            <button class="btn-acao editar" onclick="window.location.href='edicao.html'">Editar</button>
+            <button class="btn-acao excluir">Excluir</button>
+        </div>
+        <!-- Adicione outros cards conforme necessário -->
+    </div>
+
+    <!-- JavaScript para filtrar produtos -->
+    <script>
+        function filtrarProdutos() {
+            const categoria = document.getElementById("categoria").value.toLowerCase();
+            const pesquisa = document.getElementById("pesquisa").value.toLowerCase();
+            const produtos = document.querySelectorAll(".produto-card");
+
+            produtos.forEach(produto => {
+                const categoriaProduto = produto.querySelector("p").textContent.toLowerCase();
+                const nomeProduto = produto.querySelector("h3").textContent.toLowerCase();
+                
+                if ((categoria === "" || categoriaProduto.includes(categoria)) &&
+                    (pesquisa === "" || nomeProduto.includes(pesquisa))) {
+                    produto.style.display = "block";
+                } else {
+                    produto.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

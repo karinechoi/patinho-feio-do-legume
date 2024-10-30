@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Travel Packages - Patinho Feio do Legume</title>
+</head>
+<body class="destination-body"> <!-- Ensure this specific class is still present -->
+    <!-- Hero Section moved to the top of the page -->
+    <header class="hero-section">
+        <div class="overlay"></div>
+        <div class="destination-container">
+            <h1>Agende agora seu carrinho de compras!</h1>
+            <form class="search-bar">
+                <input type="text" placeholder="Search destinations, hotels">
+                <input type="date" placeholder="Check-in">
+                <input type="date" placeholder="Check-out">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Content section starts here -->
+    <main class="content">
+        <section class="top-categories">
+            <h2>Menu de Opções</h2>
+            <div class="categories">
+                <div class="category-item">Frutas</div>
+                <div class="category-item">Verduras</div>
+                <div class="category-item">Agendar pedido</div>
+                <a href="/carrinho.html" class="category-item">Meus Pedidos</a>
+            </div>
+        </section>
+
+        <section class="vacation-destinations">
+            <h2>Top 4 mais vendidos</h2>
+            <div class="destination-grid">
+                <div onclick="addToCart('laranja', 10, 1)" class="destination-card">
+                    <img src="images/Laranja.png" alt="laranja">
+                    <h3>Laranja</h3>
+                </div>
+                <div  onclick="addToCart('maca', 10, 1)" class="destination-card">
+                    <img src="images/Maca.jpg" alt="Maça">
+                    <h3>Maçã Fuji</h3>
+                </div>
+                <div onclick="addToCart('mamao', 10, 1)" class="destination-card">
+                    <img src="images/Mamao.jpg" alt="Mamao">
+                    <h3>Mamão Papaia</h3>
+                </div>
+                <div onclick="addToCart('melancia', 10, 1)" class="destination-card">
+                    <img src="images/Melancia.jpg" alt="Melancia">
+                    <h3>Melancia</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Patinho Feio do Legume. All Rights Reserved.</p>
+    </footer>
+    
+    <!-- Floating Cart Icon -->
+    <div onclick="window.location.href = 'carrinho.html'" class="floating-cart" id="floatingCart">
+        <img src="images/cart-icon.png" alt="Carrinho" id="cartIcon">
+        <span id="itemCount" class="item-count"></span>
+    </div>
+    <!-- Modal for displaying cart items -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Itens no Carrinho</h2>
+            <ul id="cartItemsList"></ul>
+            <button onclick="window.location.href = 'carrinho.html'" id="checkoutButton">Checkout</button>
+        </div>
+    </div>
+    <script  src="destination.js"></script></script>
+</body>
+</html>

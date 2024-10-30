@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Mock PayPal Integration</title>
+</head>
+<body>
+    <h1>Produtos Reservados</h1>
+    <ul id="product-list"></ul>
+    <p>Total: R$ <span id="total-price">0.00</span></p>
+
+    <!-- Botão PayPal será renderizado aqui -->
+    <div  id="paypal-button-container"></div>
+
+    <!-- Script para carregar o PayPal -->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AXbGESbu5Mp9UqtagBPQg4ifd-9Nyz52sUAbVdFInNv-142SffGMgNH8bNfNelB6iuuOSdQ0dZwD-vsZ&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo"
+        data-sdk-integration-source="developer-studio"
+    ></script>
+    <script src="compra.js"></script>
+</body>
+</html>
+

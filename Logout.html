@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleout.css"> <!-- Ensure this points to your CSS file -->
+    <title>Acompanhamento do Pedido</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Patinho Feio do Legume</div>
+            <input type="text" placeholder="Buscar..." class="search-bar">
+            <ul class="menu">
+                <li><a href="/Logout.html">Meus pedidos</a></li>
+                <li><a href="#">Minha conta</a></li>
+                <li><a href="/carrinho.html">Carrinho de compras</a></li>
+                <li><a href="/login.html" id="logout" class="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="order-details">
+            <h2>Detalhe do pedido 12345678</h2>
+            <p>Realizado em: 29/09/2024 <a href="#">Preciso de ajuda</a></p>
+        </section>
+
+        <!-- Forma de pagamento -->
+        <section class="card">
+            <h3>Forma de pagamento</h3>
+            <p><strong>Tipo de pagamento:</strong> Pix</p>
+            <p><strong>Valor total:</strong> R$ 12,23</p>
+            <p><strong>Horário do pagamento:</strong> 14:35</p>
+            <button class="btn-green">Imprimir nota fiscal</button>
+        </section>
+
+        <!-- Total Pago -->
+        <section class="card">
+            <h3>Total Pago</h3>
+            <p><strong>Subtotal:</strong> R$ 7,23</p>
+            <p><strong>Frete:</strong> R$ 5,00</p>
+            <p><strong>Total:</strong> R$ 12,23</p>
+        </section>
+
+        <!-- Endereço de entrega -->
+        <section class="card">
+            <h3>Endereço de entrega</h3>
+            <p>Rua Exemplo, 123, Bairro Centro - Cidade Exemplo, Estado</p>
+        </section>
+
+        <!-- Status do Pedido -->
+        <section class="card">
+            <h3>Status do Pedido</h3>
+            <ul class="status-list">
+                <li><img src="images/recebido.png" alt="Pedido Recebido"> Pedido Recebido 29/09 - 14:34</li>
+                <li><img src="images/pagamento.png" alt="Aguardando Pagamento"> Aguardando Pagamento 29/09 - 14:35</li>
+                <li><img src="images/aprovado.png" alt="Pagamento Aprovado"> Pagamento Aprovado 29/09 - 14:36</li>
+                <li><img src="images/fiscal.png" alt="Nota Fiscal Emitida"> Nota Fiscal Emitida 29/09 - 14:37</li>
+                <li><img src="images/entrega.png" alt="Em Processo de Entrega"> Em Processo de Entrega 29/09 - 14:38</li>
+                <li><img src="images/pedidorecebido.png" alt="Pedido Entregue"> Pedido Entregue 29/09 - 14:39</li>
+            </ul>
+        </section>
+
+        <!-- Itens do Pedido -->
+        <section class="card">
+            <h3>Itens do Pedido</h3>
+            <ul class="items-list">
+                <li>
+                    <img src="images/maca.jpg" alt="Maçã Orgânica">
+                    <p><strong>Maçã Orgânica</strong><br>2 unidades - R$ 3,89</p>
+                </li>
+                <li>
+                    <img src="images/Mamao.jpg" alt="Mamao Não Orgânica">
+                    <p><strong>Mamão Não Orgânica</strong><br>3 unidades - R$ 3,34</p>
+                </li>
+            </ul>
+        </section>
+
+        <button class="btn-green">Realizar novo pedido</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Patinho Feio do Legume</p>
+    </footer>
+
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/logout.js"></script>
+</body>
+</html>

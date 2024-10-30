@@ -1,0 +1,61 @@
+/* Estilos Globais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Lista de produtos */
+#product-list {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0;
+}
+
+#product-list li {
+    background: white;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#product-list li span {
+    font-weight: bold;
+}
+
+/* Estilo do total */
+p {
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Botão do PayPal */
+#paypal-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Estilos de Responsividade */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em; /* Tamanho menor em telas pequenas */
+    }
+    
+    p {
+        font-size: 1em; /* Tamanho menor em telas pequenas */
+    }
+}

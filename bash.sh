@@ -4,7 +4,7 @@
 echo "Building the project"
 python3 -m pip install -r requirements.txt
 
-eco "Make migration"
+echo "Make migration"
 python3 manage.py makemigrations --noinput
 python3 manage
 

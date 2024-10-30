@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'produtoWebserver',  # Registra produtoWebserver para que o Django reconheça os modelos
 ]
 
+AUTH_USER_MODEL = 'main.User'
+
 # Middleware
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -137,7 +139,7 @@ REST_FRAMEWORK = {
 # Configurações de CORS (Cross-Origin Resource Sharing)
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=Csv(), default="http://localhost:3000")
 VERCEL_BLOB_TOKEN = config('BLOB_READ_WRITE_TOKEN')
-VERCEL_BLOB_BASE_URL = config('VERCEL_BLOB_BASE_URL', default=None)  
+VERCEL_BLOB_BASE_URL = config('VERCEL_BLOB_BASE_URL', default=None)
 # Configurações para o CORS se precisar permitir acesso de qualquer origem (não recomendado em produção)
 # CORS_ALLOW_ALL_ORIGINS = True
 
@@ -159,6 +161,24 @@ LOGGING = {
         },
     },
 }
+
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+    "http://127.0.0.1:8080",
+]
+
+# Add these settings after REST_FRAMEWORK configuration
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# Make sure session middleware is properly configured
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_HTTPONLY = True
+
 urlpatterns=[ ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

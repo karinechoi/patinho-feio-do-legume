@@ -1,0 +1,140 @@
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50; /* Adjust background color */
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar .search-bar {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 250px;
+}
+
+.navbar .menu {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .menu li {
+    display: inline;
+}
+
+.navbar .menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #3E8E41; /* Default background for menu items */
+    transition: background 0.3s;
+}
+
+.navbar .menu a:hover {
+    background-color: #45a049;
+}
+
+.logout {
+    background-color: #FF6347; /* Distinct color for logout button */
+    font-weight: bold;
+}
+
+.logout:hover {
+    background-color: #e63e2f;
+}
+
+/* Main content styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/* General card styling */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.status-list, .items-list {
+    list-style: none;
+    padding: 0;
+}
+
+.status-list li, .items-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.status-list li img, .items-list li img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.btn-green {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-green:hover {
+    background-color: #45a049;
+}

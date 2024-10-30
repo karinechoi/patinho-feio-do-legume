@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sign Up - Patinho Feio do Legume</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <h2>Faça sua Associação</h2>
+            <p>Crie sua nova conta</p>
+
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <input type="text" id="nome" name="first_name" placeholder="Nome" required>
+                <small id="nomeError" class="error-message"></small>
+
+                <input type="text" id="username" name="username" placeholder="Nome de usuário" required>
+                <small id="usernameError" class="error-message"></small>
+
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
+                <small id="emailError" class="error-message"></small>
+
+                <input type="text" id="celular" name="celular" placeholder="Celular" required>
+                <small id="celularError" class="error-message"></small>
+
+                <input type="password" id="senha" name="password" placeholder="Senha" required>
+                <small id="senhaError" class="error-message"></small>
+
+                <div id="signupError" class="error-message"></div>
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <div class="social-login">
+                <p>OU</p>
+                <div class="social-icons">
+                    <img src="images/google-icon.png" alt="Google">
+                    <img src="images/facebook-icon.png" alt="Facebook">
+                    <img src="images/apple-icon.png" alt="Apple">
+                </div>
+                <p>Já tem uma conta? <a href="login.html">Log In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/auth.js"></script>
+    <script>
+        async function handleSignup(event) {
+            event.preventDefault();
+
+            const userData = {
+                username: document.getElementById('username').value,
+                first_name: document.getElementById('nome').value,
+                email: document.getElementById('email').value,
+                celular: document.getElementById('celular').value,
+                password: document.getElementById('senha').value
+            };
+
+            const errorDiv = document.getElementById('signupError');
+
+            try {
+                const response = await register(userData);
+                window.location.href = '/choose-profile.html';
+            } catch (error) {
+                errorDiv.textContent = error.message;
+                errorDiv.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
