@@ -9,3 +9,4 @@ django-cors-headers
 Pillow
 django-storages
 requests
+vercel_storage
