@@ -4,7 +4,9 @@ from pathlib import Path
 from decouple import config, Csv
 from django.core.management.utils import get_random_secret_key
 import sys
+from dotenv import load_dotenv
 
+load_dotenv()
 # Caminho base do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -136,7 +138,7 @@ REST_FRAMEWORK = {
 
 # Configurações de CORS (Cross-Origin Resource Sharing)
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=Csv(), default="http://localhost:3000")
-VERCEL_BLOB_TOKEN = config('VERCEL_BLOB_TOKEN')   
+VERCEL_BLOB_TOKEN = config('BLOB_READ_WRITE_TOKEN')   
 # Configurações para o CORS se precisar permitir acesso de qualquer origem (não recomendado em produção)
 # CORS_ALLOW_ALL_ORIGINS = True
 
