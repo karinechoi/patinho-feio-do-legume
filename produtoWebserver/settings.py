@@ -1,8 +1,12 @@
-import os
+from django.conf import settings
+from django.conf.urls.static import static
 from pathlib import Path
 from decouple import config, Csv
 from django.core.management.utils import get_random_secret_key
 import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 # Caminho base do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -156,4 +160,6 @@ LOGGING = {
         },
     },
 }
-
+urlpatterns=[ ]
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
