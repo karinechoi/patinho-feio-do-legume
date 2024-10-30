@@ -136,7 +136,8 @@ REST_FRAMEWORK = {
 
 # Configurações de CORS (Cross-Origin Resource Sharing)
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=Csv(), default="http://localhost:3000")
-VERCEL_BLOB_TOKEN = config('BLOB_READ_WRITE_TOKEN')   
+VERCEL_BLOB_TOKEN = config('BLOB_READ_WRITE_TOKEN')
+VERCEL_BLOB_BASE_URL = config('VERCEL_BLOB_BASE_URL', default=None)  
 # Configurações para o CORS se precisar permitir acesso de qualquer origem (não recomendado em produção)
 # CORS_ALLOW_ALL_ORIGINS = True
 
