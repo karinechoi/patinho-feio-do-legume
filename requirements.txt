@@ -7,4 +7,4 @@ whitenoise
 gunicorn
 django-cors-headers
 Pillow
-storages
+django-storages
