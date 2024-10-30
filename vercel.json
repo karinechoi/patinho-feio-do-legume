@@ -1,22 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "http://localhost:8000/api/$1" },
-    { "source": "/choose-profile", "destination": "/choose-profile.html" },
-    { "source": "/", "destination": "/signup.html" },
-    { "source": "/login", "destination": "/login.html" },
-    { "source": "/home", "destination": "/home.html" },
-    { "source": "/carrinho", "destination": "/carrinho.html" },
-    { "source": "/destination", "destination": "/destination.html" },
-    { "source": "/destinationfarm", "destination": "/destinationfarm.html" },
-    { "source": "/cadastroproduto", "destination": "/cadastroproduto.html" },
-    { "source": "/edicao", "destination": "/edicao.html" },
-    { "source": "/listagem", "destination": "/listagem.html" },
-    { "source": "/logout", "destination": "/Logout.html" }
-  ]
-}
-
-
-{
     "version": 2,
     "builds": [
       { "src": "manage.py", "use": "@vercel/python" },
