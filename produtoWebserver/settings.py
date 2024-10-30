@@ -81,7 +81,6 @@ DATABASES = {
         'PASSWORD': config('POSTGRES_PASSWORD', default='senha'),
         'HOST': config('POSTGRES_HOST', default='localhost'),
         'PORT': config('POSTGRES_PORT', default='5432'),
-        'PORT': config('POSTGRES_PORT', default='5432'),
         'TEST': {
             'NAME': 'tests_' + config('POSTGRES_DATABASE', default='nome_do_banco')  # Usa um banco temporário
         },
