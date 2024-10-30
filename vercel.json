@@ -14,3 +14,22 @@
     { "source": "/logout", "destination": "/Logout.html" }
   ]
 }
+
+
+{
+    "version": 2,
+    "builds": [
+      { "src": "manage.py", "use": "@vercel/python" },
+      { "src": "produtoWebserver/wsgi.py", "use": "@vercel/python" },
+      {
+        "src": "build_files.sh",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "staticfiles_build"
+        }
+      }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "produtoWebserver/wsgi.py" }
+    ]
+  }
